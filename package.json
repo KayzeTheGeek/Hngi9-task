@@ -1,16 +1,20 @@
 {
-    "name": "stage1_hng",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "repository": "https://github.com/Aycom366/hng_stage1",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "engines": {
-      "node": ">=14"
-    }
+  "name": "stage1_hng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/Aycom366/hng_stage1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
+}
