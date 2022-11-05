@@ -16,9 +16,9 @@ router.get("/", (req, res) => {
 });
 
 let typeCheck = (req, res, next) => {
-  const validKeys = ["operation_body", "x", "y"];
+  const validKeys = ["operation_type", "x", "y"];
   const bodyKeys = Object.keys(req.body);
-  console.log(req.body.operation_body);
+  console.log(req.body.operation_type);
   if (
     !validKeys.every((value) => bodyKeys.some((bvalue) => bvalue === value))
   ) {
@@ -31,11 +31,11 @@ let typeCheck = (req, res, next) => {
     console.log("y props must be a number");
     next("error");
   } else if (
-    req.body.operation_body !==
+    req.body.operation_type !==
     ("addition" || "subtraction" || "multiplication")
   ) {
     console.log(
-      "operation_body props must be any of this values (all in lower case):",
+      "operation_type props must be any of this values (all in lower case):",
       "addition",
       "subtraction",
       "multiplication"
@@ -47,9 +47,9 @@ let typeCheck = (req, res, next) => {
 
 router.post("/", typeCheck, (req, res) => {
   let result;
-  if (req.body.operation_body === "addition") {
+  if (req.body.operation_type === "addition") {
     result = req.body.x + req.body.y;
-  } else if (req.body.operation_body === "subtraction") {
+  } else if (req.body.operation_type === "subtraction") {
     result = req.body.x - req.body.y;
   } else {
     result = req.body.x * req.body.y;
@@ -57,7 +57,7 @@ router.post("/", typeCheck, (req, res) => {
   
   res.json({
     slackUsername: "Kayzethegeek",
-    operation_type: req.body.operation_body,
+    operation_type: req.body.operation_type,
     result,
   });
 });
