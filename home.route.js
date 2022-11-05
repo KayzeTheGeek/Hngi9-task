@@ -54,6 +54,8 @@ router.post("/", typeCheck, (req, res) => {
   } else {
     result = req.body.x * req.body.y;
   }
+
+  res.setHeader('Content-Type', "application/json")
   
   res.json({
     slackUsername: "Kayzethegeek",
