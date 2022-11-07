@@ -1,5 +1,5 @@
 const express = require("express");
-const sendName = require("./home.route");
+const sendName = require("./routes/home");
 
 const app = express();
 
